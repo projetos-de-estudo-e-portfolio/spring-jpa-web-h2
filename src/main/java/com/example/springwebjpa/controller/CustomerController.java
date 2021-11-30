@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
@@ -20,6 +22,12 @@ public class CustomerController {
     public Iterable<Customer> findAll(){
         return this.customerService.findAll();
     }
+
+    @GetMapping("/{id}")
+    public Optional<Customer> findById(@PathVariable("id") Long id) {
+        return customerService.findById(id);
+    }
+
     @PostMapping
     public Customer save (@RequestBody Customer customer) {
         return this.customerService.save(customer);
