@@ -1,17 +1,28 @@
 package com.example.springwebjpa.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Customer {
+@Getter
+@Setter
 
+public class Customer {
+    @Getter
+    @Setter
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Setter
+    @Getter
     private String firstName;
+    @Setter
+    @Getter
     private String lastName;
 
     protected Customer() {}
@@ -27,5 +38,4 @@ public class Customer {
                 "Customer[id=%d, firstName='%s', lastName='%s']",
                 id, firstName, lastName);
     }
-
 }
