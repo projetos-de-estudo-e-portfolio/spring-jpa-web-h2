@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -26,6 +27,11 @@ public class CustomerController {
     @GetMapping("/{id}")
     public Optional<Customer> findById(@PathVariable("id") Long id) {
         return customerService.findById(id);
+    }
+
+    @GetMapping("/lastName")
+    public List<Customer> findByLastName (@RequestParam String lastName){
+        return this.customerService.findByLastName(lastName);
     }
 
     @PostMapping
